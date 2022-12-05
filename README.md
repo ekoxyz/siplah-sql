@@ -73,7 +73,7 @@ ORDER BY
 	bm.updated_at ASC
 ```
 
-# BPD Aja
+## BPD Aja
 
 ```sql
 SELECT

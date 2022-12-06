@@ -28,7 +28,7 @@ ORDER BY
 	transfer_ke_merchant DESC
 ```
 
-## BRIVA fro Mass FT
+## BRIVA for Mass FT
 
 ```sql
 SELECT
@@ -87,10 +87,9 @@ FROM
 	JOIN merchant mc ON mc.ID = co.merchant_id
 	JOIN bank_mutations bm ON bm.ID = co.bank_mutation_in_id 
 WHERE
-	co.purchase_status IN ( 'payment_verified' ) -- 	AND co.payment_method_id = 4
-	
+	co.purchase_status IN ( 'payment_verified' )	
 	AND co.handling_fee IS NOT NULL 
-	AND mc.bank_account ->> 'bank' = 'BRI' 
+	AND mc.bank_account ->> 'bank' = 'JATENG' 
 	AND bm.updated_at BETWEEN '2022-12-05 00:00:00' 
 	AND '2022-12-05 23:59:59' 
 	AND co.payment_method_id IN ( 3 ) --bpdaja

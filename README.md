@@ -30,9 +30,8 @@ ORDER BY
 
 ## BRIVA for Mass FT
 
-```sql
+``` sql
 SELECT
--- 	bm.updated_at TANGGAL_TERVERIFIKASI,
 CASE
 		co.payment_method_id 
 		WHEN 1 THEN
@@ -75,9 +74,9 @@ ORDER BY
 
 ## BPD Aja
 
-```sql
+``` sql
 SELECT
-	( '20221205' ) :: TEXT AS rek_ladang,
+	( '20221205' ) :: TEXT AS rek_ladang, -- sesuaikan dengan tanggal sekarang YYYYMMDD
 	mc.bank_account ->> 'no' AS rek_toko,
 	mc.bank_account ->> 'name' AS accont_name,
 	co.order_no AS remark,

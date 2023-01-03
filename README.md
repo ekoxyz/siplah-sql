@@ -118,3 +118,23 @@ WHERE
 ORDER BY
 	tc.collected_at ASC
 ```
+
+# Penutupan Transaksi
+
+## cut off tanggal updated_at dan status escalated
+
+```sql
+SELECT
+	clo.customer_order_id AS trx_mpid,
+	co.order_no AS nomor_po,
+	clo.reason AS alasan,
+	concat ( 'https://siplah-oss.tokoladang.co.id/', clo.doc_responded ) AS dokumen_kesepakatan 
+FROM
+	"close_orders" AS clo
+	LEFT JOIN customer_order AS co ON clo.customer_order_id = co."id" 
+WHERE
+	clo.updated_at < '2023-01-01 00:00:00' 
+	AND clo.status = 'escalated' 
+ORDER BY
+	clo.updated_at ASC
+```
